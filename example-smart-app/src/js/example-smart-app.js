@@ -18,7 +18,7 @@
                         $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
                               'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
-                              'https://loinc.org|2951-2']
+                              'https://loinc.org|2951-2', 'https://loinc.org|2823-3']
                       }
                     }
                   });
@@ -43,6 +43,7 @@
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
           var sodium = byCodes('2951-2');
+          var potassium = byCodes('2823-3');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -62,6 +63,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.sodium = getQuantityValueAndUnit(sodium[0]);
+          p.potassium = getQuantityValueAndUnit(potassium[0]);
 
           ret.resolve(p);
         });
@@ -87,6 +89,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       sodium: {value:''},
+      potassium: {value:''},
     };
   }
 
@@ -131,6 +134,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#sodium').html(p.sodium);
+    $('#potassium').html(p.potassium);
   };
 
 })(window);
